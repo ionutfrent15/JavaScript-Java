@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Practic</title>
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h2>Alege o descriere, iar apoi imaginea cu care se potriveste</h2>
+    <h3>Pentru a castiga jocul trebuie sa potrivesti toate perechile</h3>
+    <h4>Grabeste-te! Ai sansa sa intri in Hall Of Fame si sa adaugi noi perechi</h4>
+    <h4>Succes!</h4>
+    <div id="timp">0</div><br><br>
+    <table id="init" border="1">
+    </table><br><br>
+    <table id="match" border="1">
+    </table><br><br>
+
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div id="mesaj">
+                <p id="sec"></p>
+
+            </div>
+            <div id="hall" hidden="hidden">
+                Introduceti numele pentru a fi inclus in Hall of Fame.
+                <input id="nume" type="text">
+                <button id="fame" onclick="adaugaNumeHallOfFame()">Adauga nume</button><br>
+            </div>
+            <ol id="list"></ol>
+            <span id="close" class="close">&times;</span>
+        </div>
+    </div>
+
+    <button id="joc" onclick="handleJocNou()" hidden="hidden">Joc nou</button><br><br><br>
+
+    <form id="form" action="http://localhost:8080/app/add" method="post" hidden="hidden" target="_blank">
+        Adauga imagine noua:
+        <input id="username" name="username" hidden="hidden">
+        <input type="text" name="descr" placeholder="descriere"><br>
+        <input type="file" name="image" placeholder="imagine"><br>
+        <input type="submit" value="add">
+    </form>
+</body>
+</html>
